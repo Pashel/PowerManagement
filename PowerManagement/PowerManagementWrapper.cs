@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using  PowerManagement.Data;
 using System.ComponentModel;
 
@@ -22,8 +18,11 @@ namespace PowerManagement
             int nOutputBufferSize
         );
 
-        protected void GetNtPowerInformation(Information code, IntPtr buffer, int bufferSize)
+        protected T GetNtPowerInformation<T>(Information code)
         {
+            var bufferSize = Marshal.SizeOf(typeof(T));
+            IntPtr buffer = Marshal.AllocHGlobal(bufferSize);
+
             uint retval = CallNtPowerInformation(
                 (int)code,
                 IntPtr.Zero,
@@ -32,9 +31,16 @@ namespace PowerManagement
                 bufferSize
             );
 
-            if (retval != STATUS_SUCCESS) {
-                throw new Win32Exception((int)retval, "CallNtPowerInformation failed");
+            if (retval != STATUS_SUCCESS)
+            {
+                Marshal.Release(buffer);
+                throw new Win32Exception((int)retval, "CallNtPowerInformation failed code");
             }
+
+            var result = (T)Marshal.PtrToStructure(buffer, typeof(T));
+            Marshal.Release(buffer);
+
+            return result;
         }
     }
 }
