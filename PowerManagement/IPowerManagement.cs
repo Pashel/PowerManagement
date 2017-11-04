@@ -11,5 +11,7 @@ namespace PowerManagement
         SYSTEM_POWER_INFORMATION GetSystemPowerInformation();
         void ReserveHibernationFile();
         void DeleteHibernationFile();
+        void HibernateSystem();
+        void SuspendSystem();
     }
 }

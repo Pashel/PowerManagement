@@ -18,6 +18,9 @@ namespace PowerManagement
             int nOutputBufferSize
         );
 
+        [DllImport("Powrprof.dll", SetLastError = true)]
+        private static extern bool SetSuspendState(bool hibernate, bool forceCritical, bool disableWakeEvent);
+
         protected T GetNtPowerInformation<T>(Information code)
         {
             var bufferSize = Marshal.SizeOf(typeof(T));
@@ -34,7 +37,7 @@ namespace PowerManagement
             if (retval != STATUS_SUCCESS)
             {
                 Marshal.Release(buffer);
-                throw new Win32Exception((int)retval, "CallNtPowerInformation failed code");
+                throw new Win32Exception((int)retval, "CallNtPowerInformation failed");
             }
 
             var result = (T)Marshal.PtrToStructure(buffer, typeof(T));
@@ -62,6 +65,16 @@ namespace PowerManagement
 
             if (retval != STATUS_SUCCESS) {
                 throw new Win32Exception((int)retval, "Manage hibernate file failed");
+            }
+        }
+
+        protected void SuspendSystem(bool action)
+        {
+            var result = SetSuspendState(action, false, false);
+
+            if (!result) {
+                var error = Marshal.GetLastWin32Error();
+                throw new Win32Exception(error, "SetSuspendState failed");
             }
         }
     }

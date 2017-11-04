@@ -38,5 +38,15 @@ namespace PowerManagement
         {
             ManageHibernateFile(false);
         }
+
+        public void HibernateSystem()
+        {
+            SuspendSystem(true);
+        }
+
+        public void SuspendSystem()
+        {
+            SuspendSystem(false);
+        }
     }
 }
