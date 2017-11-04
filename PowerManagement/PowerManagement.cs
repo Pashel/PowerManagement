@@ -29,12 +29,12 @@ namespace PowerManagement
             return result;
         }
 
-        public static void ReserveHibernationFile()
+        public void ReserveHibernationFile()
         {
             ManageHibernateFile(true);
         }
 
-        public static void DeleteHibernationFile()
+        public void DeleteHibernationFile()
         {
             ManageHibernateFile(false);
         }
