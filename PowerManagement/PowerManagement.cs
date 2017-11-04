@@ -28,5 +28,15 @@ namespace PowerManagement
             var result = GetNtPowerInformation<SYSTEM_POWER_INFORMATION>(Information.SystemPowerInformation);
             return result;
         }
+
+        public static void ReserveHibernationFile()
+        {
+            ManageHibernateFile(true);
+        }
+
+        public static void DeleteHibernationFile()
+        {
+            ManageHibernateFile(false);
+        }
     }
 }

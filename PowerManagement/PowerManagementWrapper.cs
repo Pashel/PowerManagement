@@ -42,5 +42,27 @@ namespace PowerManagement
 
             return result;
         }
+
+        protected static void ManageHibernateFile(bool action)
+        {
+            int systemReserveHiberFile = 10;
+
+            IntPtr ptr = Marshal.AllocHGlobal(sizeof(bool));
+            Marshal.StructureToPtr(action, ptr, false);
+
+            uint retval = CallNtPowerInformation(
+                systemReserveHiberFile,
+                ptr,
+                sizeof(bool),
+                IntPtr.Zero,
+                0
+            );
+
+            Marshal.Release(ptr);
+
+            if (retval != STATUS_SUCCESS) {
+                throw new Win32Exception((int)retval, "Manage hibernate file failed");
+            }
+        }
     }
 }

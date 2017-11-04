@@ -9,5 +9,7 @@ namespace PowerManagement
         UInt64 GetLastWakeTime();
         SYSTEM_BATTERY_STATE GetSystemBatteryState();
         SYSTEM_POWER_INFORMATION GetSystemPowerInformation();
+        void ReserveHibernationFile();
+        void DeleteHibernationFile();
     }
 }
