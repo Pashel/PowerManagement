@@ -19,7 +19,7 @@ namespace PowerManagementClient
         {
             try {
                 var time = _manager.GetLastSleepTime();
-                Output.Text = $"Last sleep time duration - {time}";
+                Output.Text = $"Last system sleep time - {time}";
             }
             catch (Win32Exception exception) {
                 Output.Text = exception.Message;
@@ -30,7 +30,7 @@ namespace PowerManagementClient
         {
             try {
                 var time = _manager.GetLastWakeTime();
-                Output.Text = $"Last wake time duration - {time}";
+                Output.Text = $"Last system wake time - {time}";
             }
             catch (Win32Exception exception) {
                 Output.Text = exception.Message;
