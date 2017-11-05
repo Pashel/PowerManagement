@@ -36,6 +36,7 @@ namespace PowerManagement
 
             if (retval != STATUS_SUCCESS) {
                 Marshal.Release(buffer);
+                // can't send error code because microsoft failed normal realization/documentation
                 throw new Win32Exception("CallNtPowerInformation failed");
             }
 
