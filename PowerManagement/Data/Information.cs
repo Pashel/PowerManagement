@@ -1,6 +1,6 @@
 ﻿namespace PowerManagement.Data
 {
-    internal enum Information
+    public enum Information
     {
         LastSleepTime = 15,
         LastWakeTime = 14,

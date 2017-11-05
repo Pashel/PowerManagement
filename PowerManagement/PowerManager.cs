@@ -3,18 +3,20 @@ using PowerManagement.Data;
 
 namespace PowerManagement
 {
-    class PowerManagement : PowerManagementWrapper, IPowerManagement
+    public class PowerManager : PowerManagerWrapper, IPowerManager
     {
-        public UInt64 GetLastSleepTime()
+        public TimeSpan GetLastSleepTime()
         {
             var result = GetNtPowerInformation<UInt64>(Information.LastSleepTime);
-            return result;
+            TimeSpan timeSpan = TimeSpan.FromSeconds(result / Math.Pow(10, 7));
+            return timeSpan;
         }
 
-        public UInt64 GetLastWakeTime()
+        public TimeSpan GetLastWakeTime()
         {
             var result = GetNtPowerInformation<UInt64>(Information.LastWakeTime);
-            return result;
+            TimeSpan timeSpan = TimeSpan.FromSeconds(result / Math.Pow(10, 7));
+            return timeSpan;
         }
 
         public SYSTEM_BATTERY_STATE GetSystemBatteryState()

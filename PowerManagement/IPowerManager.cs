@@ -3,10 +3,10 @@ using PowerManagement.Data;
 
 namespace PowerManagement
 {
-    public interface IPowerManagement
+    public interface IPowerManager
     {
-        UInt64 GetLastSleepTime();
-        UInt64 GetLastWakeTime();
+        TimeSpan GetLastSleepTime();
+        TimeSpan GetLastWakeTime();
         SYSTEM_BATTERY_STATE GetSystemBatteryState();
         SYSTEM_POWER_INFORMATION GetSystemPowerInformation();
         void ReserveHibernationFile();

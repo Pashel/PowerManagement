@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace PowerManagement
 {
-    internal class PowerManagementWrapper
+    public class PowerManagerWrapper
     {
         private const uint STATUS_SUCCESS = 0;
 
@@ -34,10 +34,9 @@ namespace PowerManagement
                 bufferSize
             );
 
-            if (retval != STATUS_SUCCESS)
-            {
+            if (retval != STATUS_SUCCESS) {
                 Marshal.Release(buffer);
-                throw new Win32Exception((int)retval, "CallNtPowerInformation failed");
+                throw new Win32Exception("CallNtPowerInformation failed");
             }
 
             var result = (T)Marshal.PtrToStructure(buffer, typeof(T));
@@ -64,7 +63,7 @@ namespace PowerManagement
             Marshal.Release(ptr);
 
             if (retval != STATUS_SUCCESS) {
-                throw new Win32Exception((int)retval, "Manage hibernate file failed");
+                throw new Win32Exception("Manage hibernate file failed");
             }
         }
 
