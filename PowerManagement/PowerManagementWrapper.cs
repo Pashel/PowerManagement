@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace PowerManagement
 {
-    public class PowerManagerWrapper
+    public class PowerManagementWrapper
     {
         private const uint STATUS_SUCCESS = 0;
 

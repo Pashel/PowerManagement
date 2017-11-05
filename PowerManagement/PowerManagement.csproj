@@ -45,7 +45,7 @@
     <Compile Include="Data\SystemPowerInformation.cs" />
     <Compile Include="IPowerManager.cs" />
     <Compile Include="PowerManager.cs" />
-    <Compile Include="PowerManagerWrapper.cs" />
+    <Compile Include="PowerManagementWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

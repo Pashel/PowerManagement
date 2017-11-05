@@ -3,7 +3,7 @@ using PowerManagement.Data;
 
 namespace PowerManagement
 {
-    public class PowerManager : PowerManagerWrapper, IPowerManager
+    public class PowerManager : PowerManagementWrapper, IPowerManager
     {
         public TimeSpan GetLastSleepTime()
         {
