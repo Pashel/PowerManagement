@@ -127,7 +127,7 @@
             this.Output.Location = new System.Drawing.Point(0, 137);
             this.Output.Name = "Output";
             this.Output.ReadOnly = true;
-            this.Output.Size = new System.Drawing.Size(491, 209);
+            this.Output.Size = new System.Drawing.Size(491, 77);
             this.Output.TabIndex = 8;
             this.Output.Text = "";
             // 
@@ -135,7 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 346);
+            this.ClientSize = new System.Drawing.Size(491, 214);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.SuspendSystem);
             this.Controls.Add(this.HibernateSystem);
@@ -146,8 +146,8 @@
             this.Controls.Add(this.LastWakeTime);
             this.Controls.Add(this.LastSleepTime);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(507, 385);
-            this.MinimumSize = new System.Drawing.Size(507, 385);
+            this.MaximumSize = new System.Drawing.Size(507, 253);
+            this.MinimumSize = new System.Drawing.Size(507, 253);
             this.Name = "PowerManagementForm";
             this.Text = "Power Management Client";
             this.ResumeLayout(false);
