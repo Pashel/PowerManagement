@@ -63,6 +63,7 @@ namespace PowerManagement
             Marshal.Release(ptr);
 
             if (retval != STATUS_SUCCESS) {
+                // can't send error code because microsoft failed normal realization/documentation
                 throw new Win32Exception("Manage hibernate file failed");
             }
         }
