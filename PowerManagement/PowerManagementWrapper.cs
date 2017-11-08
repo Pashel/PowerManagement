@@ -46,7 +46,7 @@ namespace PowerManagement
             return result;
         }
 
-        protected static void ManageHibernateFile(bool action)
+        protected void ManageHibernateFile(bool action)
         {
             int systemReserveHiberFile = 10;
 
